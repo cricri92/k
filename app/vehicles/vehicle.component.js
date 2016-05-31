@@ -15,7 +15,8 @@ var VehicleComponent = (function () {
     VehicleComponent = __decorate([
         core_1.Component({
             selector: 'vehicle',
-            template: '<p>This is a vehicle</p>'
+            templateUrl: 'app/vehicles/shared/create-vehicle.html',
+            styleUrls: ['app/vehicles/shared/vehicles.css']
         }), 
         __metadata('design:paramtypes', [])
     ], VehicleComponent);

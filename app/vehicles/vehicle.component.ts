@@ -3,7 +3,8 @@ import { Vehicle } from './shared/vehicle.model.ts'
 
 @Component({
     selector: 'vehicle',
-    template: '<p>This is a vehicle</p>'
+    templateUrl: 'app/vehicles/shared/create-vehicle.html',
+    styleUrls: ['app/vehicles/shared/vehicles.css']
 })
 export class VehicleComponent{
     vehicles: Vehicle[]
