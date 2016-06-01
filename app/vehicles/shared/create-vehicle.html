@@ -1,60 +1,70 @@
-<div class="no-group">
-    <div class="input-group">
-        <span class="step-number">1</span>
-        Escoja una marca de vehículo
-        <input type="text" class="form-control">
-    </div>
+<form action="">
+    <h1>Crear vehiculo</h1>
     <hr>
-    <div class="input-group">
-        <span class="step-number">2</span>
-        Escoja un modelo
-        <input type="text" class="form-control">
-    </div>
-    <hr>
-    <div class="input-group">
-        <span class="step-number">3</span>
-        Elija el tipo de remolque
-        <input type="text" class="form-control">
-    </div>
-    <hr>
-    <span class="step-number">4</span>
-    Complete los siguientes datos  
-</div>  
-<div class="col-md-12 group">        
-    <div class="col-md-6">
-        <div class="input-group">
-            Placa
-            <input type="text" class="form-control">
-        </div>
-        <div class="input-group">
-            Color            
-            <input type="text" class="form-control">
-        </div>
-        <div class="input-group">
-            Año            
-            <input type="number" class="form-control">
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="input-group">
-            Serial carrocería            
-            <input type="text" class="form-control">
-        </div>
-        <div class="input-group">
-            Serial motor            
-            <input type="text" class="form-control">
-        </div>
-        <div class="input-group">
-            Kilometraje actual            
-            <input type="text" class="form-control">
+    <div class="no-group">
+        <div class="form-group">
+            <span class="step-number">1</span>
+            <label for="brand">Escoja una marca de vehículo</label>
+            <select class="form-control" required [(ngModel)]="model.brand" ngControl="brand">
+                <option *ngFor="let b of brand" [value]="b">{{b}}</option>
+            </select> 
         </div>
         <hr>
-    </div>         
-</div>
-<div class="col-md-6">
-    <span class="step-number">5</span>  
-</div>        
-<div class="btn-group col-md-6">        
-    <button type="button" class="btn btn-default submit">Crear</button>
-</div>   
-
+        <div class="form-group">
+            <span class="step-number">2</span>
+            <label for="model">Indique el modelo</label>
+            <input type="text" class="form-control" required [(ngModel)]="model.model" ngControl="model" #model="ngForm">
+            <div [hidden]="model.valid || model.pristine" class="alert alert-danger" >
+                El modelo es requerido
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <span class="step-number">3</span>
+            <label for="trailer">Tipo de remolque</label>
+            <select class="form-control" required [(ngModel)]="model.trailer_type" ngControl="trailer_type" >
+                <option *ngFor="let t of trailer" [value]="t">{{t}}</option>
+            </select>
+        </div>
+        <hr>
+        <span class="step-number">4</span>
+        <label for="">Complete los siguientes datos</label>  
+    </div>  
+    <div class="col-md-12 group">        
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="license_plate">Placa</label>
+                <input type="text" class="form-control" required [(ngModel)]="model.license_plate" ngControl="license_plate" >
+            </div>
+            <div class="form-group">
+                <label for="color">Color</label>            
+                <input type="text" class="form-control" [(ngModel)]="model.color" ngControl="color" >
+            </div>
+            <div class="form-group">
+                <label for="year">Año</label>            
+                <input type="number" class="form-control" [(ngModel)]="model.year" ngControl="year" >
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="chassis_serial">Serial carrocería</label>           
+                <input type="text" class="form-control" required [(ngModel)]="model.chassis_serial" ngControl="chassis_serial" >
+            </div>
+            <div class="form-group">
+                <label for="engine_serial">Serial motor</label>            
+                <input type="text" class="form-control" required [(ngModel)]="model.engine_serial" ngControl="engine_serial" >
+            </div>
+            <div class="form-group">
+                <label for="mileage">Kilometraje actual</label>            
+                <input type="text" class="form-control" required [(ngModel)]="model.mileage" ngControl="mileage" >
+            </div>
+            <hr>
+        </div>         
+    </div>
+    <div class="col-md-6">
+        <span class="step-number">5</span>  
+    </div>        
+    <div class="btn-group col-md-6">        
+        <button type="button" class="btn btn-default submit">Crear</button>
+    </div>   
+</form>
